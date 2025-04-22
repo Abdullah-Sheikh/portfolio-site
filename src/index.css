@@ -1,0 +1,149 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 24 9.8% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 12 6.5% 15.1%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-montserrat antialiased;
+  }
+}
+
+@font-face {
+  font-family: 'BubbleBold';
+  src: url('/fonts/BubbleBold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-bubble {
+  font-family: 'BubbleBold', sans-serif;
+}
+
+@layer components {
+  .card-gradient-orange {
+    @apply bg-gradient-to-r from-orange-300 to-orange-200;
+  }
+  
+  .card-gradient-pink {
+    @apply bg-gradient-to-r from-pink-300 to-pink-200;
+  }
+  
+  .card-gradient-purple {
+    @apply bg-gradient-to-r from-purple-300 to-purple-200;
+  }
+  
+  .nav-link {
+    @apply hover:text-gray-700 transition-colors duration-200;
+  }
+  
+  .button-primary {
+    @apply bg-black text-white px-6 py-3 rounded-full flex items-center hover:bg-gray-800 transition-colors;
+  }
+  
+  .arrow-icon {
+    @apply ml-2 w-4 h-4;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-8 text-center;
+  }
+  
+  .dotted-path {
+    @apply border-dashed border-white border-l-2 ml-1 pl-10 py-10;
+  }
+  
+  .round-marker {
+    @apply w-6 h-6 rounded-full bg-white flex items-center justify-center;
+  }
+  
+  .bounce-arrow {
+    animation: bounce 2s infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-5px);
+    }
+  }
+
+  .bubble-text {
+    @apply font-bubble text-[#1A1F2C] tracking-wider;
+  }
+}
+
+.user-quote {
+  @apply bg-white rounded-3xl p-8 text-center relative mb-24;
+}
+
+.user-quote::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid white;
+}
